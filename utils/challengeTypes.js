@@ -9,6 +9,7 @@ const modern = 6;
 const step = 7;
 const quiz = 8;
 const invalid = 9;
+const python = 10;
 
 // individual exports
 exports.backend = backend;
@@ -25,14 +26,16 @@ exports.challengeTypes = {
   modern,
   step,
   quiz,
-  invalid
+  invalid,
+  python
 };
 
 // turn challengeType to file ext
 exports.pathsMap = {
   [html]: 'html',
   [js]: 'js',
-  [bonfire]: 'js'
+  [bonfire]: 'js',
+  [python]: 'py'
 };
 // determine the component to view for each challenge
 exports.viewTypes = {
@@ -44,7 +47,8 @@ exports.viewTypes = {
   [modern]: 'modern',
   [step]: 'step',
   [quiz]: 'quiz',
-  [backend]: 'backend'
+  [backend]: 'backend',
+  [python]: 'python'
 };
 
 // determine the type of submit function to use for the challenge on completion
@@ -63,5 +67,6 @@ exports.submitTypes = {
   [step]: 'step',
   [quiz]: 'quiz',
   [backend]: 'backend',
-  [modern]: 'tests'
+  [modern]: 'tests',
+  [python]: 'python-tests'
 };
