@@ -1,9 +1,9 @@
 ---
-title: Python Basics
-superBlock: Python Basics
+title: Python Lessons
+superBlock: Python Lessons
 ---
 
-## Python Algorithms
+## Python Lessons
 
 This introduction is a stub
 

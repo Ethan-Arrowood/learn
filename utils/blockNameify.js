@@ -11,7 +11,7 @@ const preFormattedBlockNames = {
   'json-apis-and-ajax': 'JSON APIs and Ajax',
   'mongodb-and-mongoose': 'MongoDB and Mongoose',
   'the-dom': 'The DOM',
-  'python-basics': 'Python Basics'
+  'python-lessons': 'Python Lessons'
 };
 
 const noFormatting = ['and', 'for', 'of', 'the', 'up', 'with'];

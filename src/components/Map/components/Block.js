@@ -82,12 +82,12 @@ export class Block extends PureComponent {
   }
 
   renderChallenges(intro = {}, challenges = []) {
-    console.log(intro);
-    console.log(challenges);
+    console.log('Intro', intro);
+    console.log('Challenges', challenges);
     // TODO: Split this into a Challenge Component and add tests
     // TODO: The styles badge and map-badge on the completion span do not exist
     return [intro].concat(challenges).map((challenge, i) => {
-      console.log(challenge);
+      console.log('Challenge', challenge);
       const completedClass = challenge.isCompleted
         ? ' map-challenge-title-completed'
         : '';
