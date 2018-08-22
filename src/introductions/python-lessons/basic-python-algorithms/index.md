@@ -1,6 +1,6 @@
 ---
 title: Basic Python Algorithms
-block: Python Algorithms
+block: Basic Python Algorithms
 superBlock: Python Lessons
 ---
 

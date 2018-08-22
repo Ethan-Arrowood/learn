@@ -297,6 +297,14 @@ export const query = graphql`
           head
           tail
         }
+        indexpy {
+          key
+          ext
+          name
+          contents
+          head
+          tail
+        }
       }
     }
   }

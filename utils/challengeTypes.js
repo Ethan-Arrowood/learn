@@ -48,7 +48,7 @@ exports.viewTypes = {
   [step]: 'step',
   [quiz]: 'quiz',
   [backend]: 'backend',
-  [python]: 'python'
+  [python]: 'classic'
 };
 
 // determine the type of submit function to use for the challenge on completion

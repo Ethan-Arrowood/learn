@@ -31,6 +31,7 @@ const metaKeywords = [
   'css',
   'react',
   'redux',
+  'python',
   'api',
   'front',
   'back',
