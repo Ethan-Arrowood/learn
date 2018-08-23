@@ -207,6 +207,7 @@ class ShowClassic extends PureComponent {
           ) : null}
         </ReflexContainer>
       ));
+      console.log(challengeType)
     const showPreview =
       challengeType === challengeTypes.html ||
       challengeType === challengeTypes.modern;
@@ -239,6 +240,24 @@ class ShowClassic extends PureComponent {
             </ReflexElement>
           ) : null}
         </ReflexContainer>
+
+        {
+          challengeType === 10 && (
+            <Fragment>
+              <script type='text/python'>
+                from browser import document
+                import javascript
+
+                def echo(ev):
+                  print('foobar')
+                  print(javascript.py2js('print("Hello, world!")'))
+
+                document["executeChallengeButton"].bind('click', echo)
+              </script>
+              <script type='text/javascript'>brython()</script>
+            </Fragment>
+          )
+        }
 
         <CompletionModal />
         <HelpModal />

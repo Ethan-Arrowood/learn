@@ -17,6 +17,7 @@ function createChallengeNodes(challenge, reporter) {
     type: 'ChallengeNode'
   };
 
+  //  console.log(challenge.challengeType)
   /* eslint-disable prefer-object-spread/prefer-object-spread */
   return JSON.parse(
     JSON.stringify(

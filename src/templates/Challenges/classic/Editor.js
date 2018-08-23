@@ -88,6 +88,7 @@ class Editor extends PureComponent {
     }
   }
 
+  // this is where changes get placed in redux store
   onChange(editorValue) {
     const { updateFile, fileKey } = this.props;
     updateFile({ key: fileKey, editorValue });

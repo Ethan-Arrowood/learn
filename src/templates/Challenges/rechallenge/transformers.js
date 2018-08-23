@@ -37,7 +37,7 @@ const NBSPReg = new RegExp(String.fromCharCode(160), 'g');
 const isJS = matchesProperty('ext', 'js');
 const testHTMLJS = overSome(isJS, matchesProperty('ext', 'html'));
 export const testJS$JSX = overSome(isJS, matchesProperty('ext', 'jsx'));
-
+export const testPY = matchesProperty('ext', 'py');
 // work around the absence of multi-flile editing
 // this can be replaced with `matchesProperty('ext', 'sass')`
 // when the time comes
@@ -57,6 +57,10 @@ const browserSassCompiler = `
       }
     )
   </script>
+`;
+
+const pythonTestSuite = assertTests => `
+${assertTests} 
 `;
 // if shouldProxyConsole then we change instances of console log
 // to `window.__console.log`
@@ -109,6 +113,13 @@ export const babelTransformer = cond([
 
 export const sassTransformer = cond([
   [testSASS, partial(vinyl.appendToTail, browserSassCompiler)],
+  [stubTrue, identity]
+]);
+
+export const pythonTransformer = cond([
+  [
+    testPY, partial(vinyl.appendToTail, pythonTestSuite)
+  ],
   [stubTrue, identity]
 ]);
 

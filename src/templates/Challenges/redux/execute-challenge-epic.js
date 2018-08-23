@@ -72,6 +72,13 @@ function executeChallengeEpic(action$, { getState }, { document }) {
     filter(Boolean),
     switchMap(() => {
       const frameReady = new Subject();
+      /**
+       * {
+       *  next: () => {},
+       * error: () =>{},
+       * complete: () =>{}
+       * }
+       */
       const frameTests = createTestFramer(document, getState, frameReady);
       const challengeResults = frameReady.pipe(
         pluck('checkChallengePayload'),
@@ -85,6 +92,7 @@ function executeChallengeEpic(action$, { getState }, { document }) {
             checkChallenge(checkChallengePayload)
           ).pipe(delay(250));
           return runTestsInTestFrame(document, tests).pipe(
+            tap(console.log),
             switchMap(tests => {
               return from(tests).pipe(
                 map(({ message }) => message),

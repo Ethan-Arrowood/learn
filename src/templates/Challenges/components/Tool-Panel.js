@@ -35,7 +35,7 @@ function ToolPanel({
   return (
     <Fragment>
       <div className='tool-panel-group'>
-        <Button block={true} bsStyle='primary' onClick={executeChallenge}>
+        <Button block={true} bsStyle='primary' onClick={executeChallenge} id='executeChallengeButton'>
           Run the Tests
         </Button>
         <Button
