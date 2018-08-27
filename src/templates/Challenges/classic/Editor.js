@@ -102,7 +102,6 @@ class Editor extends PureComponent {
 
   render() {
     const { contents, ext, theme, fileKey } = this.props;
-    console.log('ext', ext)
     const editorTheme = theme === 'night' ? 'vs-dark' : 'vs';
     return (
       <div className='classic-editor editor'>

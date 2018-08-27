@@ -59,9 +59,22 @@ const browserSassCompiler = `
   </script>
 `;
 
-const pythonTestSuite = assertTests => `
-${assertTests} 
-`;
+const pythonTestSuite = assertTests => {
+  // note(Ethan):
+  // test suite compiles tests in order and uses their index
+  // for test method declaration. This index behavior can be
+  // used to match test output to the respective UI elements
+  // could define a new property on the test entries called
+  // 'testName' or 'testID' that could be used as an identifier
+  // for the tests.
+  return 'class TestSuite(unittest.TestCase):' +
+  assertTests.map(
+    ({testString}, i) => `\n\tdef test_${i}(self):\n\t\t` + testString
+  ) +
+  '\n\tsuite = unittest.TestLoader().loadTestsFromTestCase(TestSuite)' +
+  '\n\tunittest.TextTestRunner(verbosity=0).run(suite)';
+};
+
 // if shouldProxyConsole then we change instances of console log
 // to `window.__console.log`
 // this let's us tap into logging into the console.
@@ -123,7 +136,12 @@ export const pythonTransformer = cond([
   [stubTrue, identity]
 ]);
 
-export const _transformers = [replaceNBSP, babelTransformer, sassTransformer];
+export const _transformers = [
+  replaceNBSP,
+  babelTransformer,
+  sassTransformer,
+  pythonTransformer
+];
 
 export function applyTransformers(file, transformers = _transformers) {
   return transformers.reduce((obs, transformer) => {
