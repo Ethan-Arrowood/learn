@@ -60,6 +60,7 @@ const browserSassCompiler = `
 `;
 
 const pythonTestSuite = assertTests => {
+  console.log('Python Test Suite', assertTests);
   // note(Ethan):
   // test suite compiles tests in order and uses their index
   // for test method declaration. This index behavior can be

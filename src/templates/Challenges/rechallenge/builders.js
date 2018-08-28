@@ -89,7 +89,7 @@ export function concatHtml(required, template) {
     head,
     body,
     fetchScript({
-      src: '/js/frame-runner.js',
+      src:  /* isJS  ?  */'/js/frame-runner.js'/* : '/js/python-frame-runner.js'*/,
       crossDomain: false,
       cacheBreaker: true
     }),

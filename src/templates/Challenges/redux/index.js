@@ -128,7 +128,11 @@ export const submitComplete = createAction(types.submitComplete);
 
 export const challengeFilesSelector = state => state[ns].challengeFiles;
 export const challengeMetaSelector = state => state[ns].challengeMeta;
-export const challengeTestsSelector = state => state[ns].challengeTests;
+export const challengeTestsSelector = state => {
+  let ct = state[ns].challengeTests;
+  console.log('Challenge Tests', ct);
+  return ct;
+};
 export const consoleOutputSelector = state => state[ns].consoleOut;
 export const isCodeLockedSelector = state => state[ns].isCodeLocked;
 export const isCompletionModalOpenSelector = state =>
